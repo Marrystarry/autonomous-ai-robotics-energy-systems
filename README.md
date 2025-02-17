@@ -44,8 +44,38 @@ This project outlines a vision for creating a fully autonomous AI-driven robotic
 
 ## GitHub Repository Structure
 
-- `/docs`: Detailed documentation, including technical specifications and ethical guidelines.
-- `/simulations`: AI simulation labs and digital twin models.
-- `/prototypes`: Code and blueprints for kinetic roads, solar farms, and modular robots.
-- `/governance`: Frameworks for ethical oversight and public engagement.
-- `/roadmap`: Implementation timelines and milestones.
+/Autonomous-AI-Robotics-Energy-Sustainability
+|-- /docs
+|   |-- README.md
+|   |-- technical-specifications.md
+|   |-- ethical-guidelines.md
+|
+|-- /simulations
+|   |-- README.md
+|   |-- simulation_code.py
+|   |-- digital_twin_models/
+|       |-- model_1.json
+|       |-- model_2.py
+|
+|-- /prototypes
+|   |-- README.md
+|   |-- kinetic-roads/
+|   |   |-- prototype_1_code.py
+|   |   |-- blueprint_1.dxf
+|   |-- solar-farms/
+|   |   |-- design_1.glb
+|   |-- modular-robots/
+|       |-- robot_1_code.py
+|
+|-- /governance
+|   |-- README.md
+|   |-- ethical-framework.md
+|   |-- transparency-guidelines.md
+|
+|-- /roadmap
+|   |-- README.md
+|   |-- implementation-timeline.md
+|   |-- milestones.md
+|
+|-- LICENSE
+|-- .gitignore
