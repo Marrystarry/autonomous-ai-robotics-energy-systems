@@ -42,9 +42,7 @@ This project outlines a vision for creating a fully autonomous AI-driven robotic
    - Implementation Roadmap
    - Ethical & Governance Safeguards
 
-## GitHub Repository Structure
-
-# Project Structure
+## Project Structure
 
 - **/docs**: Detailed documentation including technical specifications and ethical guidelines.
 - **/simulations**: AI simulation labs and digital twin models.
