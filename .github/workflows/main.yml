@@ -1,53 +1,45 @@
-name: CI Workflow for AI-Robotics Ecosystem
+name: Energy Systems CI Pipeline  # Workflow name
 
-on:
+on:  # Trigger for the workflow
   push:
     branches:
-      - main  # Trigger the workflow on push to main branch
+      - main  # Trigger on push to main branch
   pull_request:
     branches:
-      - main  # Trigger the workflow on pull requests to main
+      - main  # Trigger on pull requests targeting the main branch
 
-jobs:
-  # Job 1: Setup the Environment and Install Dependencies
-  setup:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
+jobs:  # The list of jobs in the workflow
+  build:
+    runs-on: ubuntu-latest  # Environment for this job
+
+    steps:  # The steps to execute in this job
+      - name: Checkout code  # Step to check out the code
         uses: actions/checkout@v2
-        
-      - name: Set up Python (if using Python)
+
+      - name: Set up Python  # Step to set up Python environment
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
-        
-      - name: Install Dependencies
-        run: |
-          pip install -r requirements.txt  # If you have a requirements.txt
+          python-version: '3.9'
 
-  # Job 2: Run AI Model Tests
-  tests:
-    needs: setup
-    runs-on: ubuntu-latest
+      - name: Install dependencies  # Step to install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests  # Step to run your tests
+        run: |
+          pytest
+
+  deploy:
+    runs-on: ubuntu-latest  # Deployment job runs on the same environment
+    needs: build  # Ensure the build job is successful before deploying
+    if: success()  # Deploy only if the build is successful
+
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Run AI Model Tests
+      - name: Deploy to Cloud  # Example deployment step
         run: |
-          python -m unittest discover  # or your testing command here
+          echo "Deploying to cloud platform..."
 
-  # Job 3: Generate Documentation
-  docs:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Generate Documentation
+      - name: Notify stakeholders  # Example notification step
         run: |
-          # If using Sphinx to generate documentation
-          sphinx-build -b html ./docs/source ./docs/build
-
-  # Job 4: Deploy Prototype or Sim
+          echo "Sending notifications to stakeholders..."
